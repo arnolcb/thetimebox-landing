@@ -23,13 +23,13 @@ const TimeboxLogo = ({ className = "w-8 h-8" }) => (
   />
 );
 
-// Componente mejorado para el selector de idioma
+// Componente mejorado para el selector de idioma sin emojis
 const LanguageSelector = ({ language, setLanguage, isDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' }
+    { code: 'en', name: 'English' },
+    { code: 'es', name: 'Español' }
   ];
   
   const currentLanguage = languages.find(lang => lang.code === language);
@@ -50,7 +50,7 @@ const LanguageSelector = ({ language, setLanguage, isDarkMode }) => {
     <div className="relative language-selector">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 ${
+        className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus:outline-none ${
           isDarkMode 
             ? 'bg-slate-800 hover:bg-slate-700 text-white' 
             : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
@@ -62,7 +62,7 @@ const LanguageSelector = ({ language, setLanguage, isDarkMode }) => {
       </button>
       
       {isOpen && (
-        <div className={`absolute top-full mt-2 right-0 rounded-lg border shadow-lg overflow-hidden z-50 min-w-[140px] ${
+        <div className={`absolute top-full mt-2 right-0 rounded-lg border shadow-lg overflow-hidden z-50 min-w-[120px] ${
           isDarkMode 
             ? 'bg-slate-800 border-slate-700' 
             : 'bg-white border-gray-200'
@@ -74,16 +74,15 @@ const LanguageSelector = ({ language, setLanguage, isDarkMode }) => {
                 setLanguage(lang.code);
                 setIsOpen(false);
               }}
-              className={`w-full px-4 py-3 text-left flex items-center space-x-3 text-sm transition-colors duration-200 ${
+              className={`w-full px-4 py-3 text-left flex items-center justify-between text-sm transition-colors duration-200 focus:outline-none ${
                 isDarkMode 
                   ? 'hover:bg-slate-700 text-white' 
                   : 'hover:bg-gray-50 text-gray-900'
               } ${language === lang.code ? (isDarkMode ? 'bg-slate-700' : 'bg-gray-50') : ''}`}
             >
-              <span className="text-lg">{lang.flag}</span>
               <span>{lang.name}</span>
               {language === lang.code && (
-                <Check className="w-4 h-4 ml-auto text-blue-500" />
+                <Check className="w-4 h-4 text-blue-500" />
               )}
             </button>
           ))}
@@ -229,7 +228,7 @@ const TimeboxLanding = () => {
             
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className={`p-2 rounded-lg transition-all duration-200 focus:outline-none ${
+              className={`p-2 rounded-lg transition-colors duration-200 focus:outline-none ${
                 isDarkMode 
                   ? 'text-gray-300 hover:text-white' 
                   : 'text-gray-600 hover:text-gray-900'
@@ -245,10 +244,10 @@ const TimeboxLanding = () => {
             />
             
             <a 
-              href="https://www.thetimebox.xyz/app/login" 
+              href="https://app.thetimebox.xyz/login" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
             >
               {t.startFree}
             </a>
@@ -258,7 +257,7 @@ const TimeboxLanding = () => {
           <div className="flex md:hidden items-center space-x-2">
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className={`p-2 rounded-lg transition-all duration-200 focus:outline-none ${
+              className={`p-2 rounded-lg transition-colors duration-200 focus:outline-none ${
                 isDarkMode 
                   ? 'text-gray-300 hover:text-white' 
                   : 'text-gray-600 hover:text-gray-900'
@@ -274,10 +273,10 @@ const TimeboxLanding = () => {
             />
             
             <a 
-              href="https://www.thetimebox.xyz/app/login" 
+              href="https://app.thetimebox.xyz/login" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
             >
               {t.startFree}
             </a>
@@ -463,10 +462,10 @@ const TimeboxLanding = () => {
               </ul>
               
               <a 
-                href="https://www.thetimebox.xyz/app/login" 
+                href="https://app.thetimebox.xyz/login" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full block text-center py-3 px-4 rounded-lg font-medium border transition-all duration-200 hover:scale-105 ${
+                className={`w-full block text-center py-3 px-4 rounded-lg font-medium border transition-colors duration-200 ${
                   isDarkMode 
                     ? 'border-slate-600 hover:border-slate-500 hover:bg-slate-700' 
                     : 'border-gray-300 hover:border-gray-400 hover:bg-gray-50'
@@ -505,7 +504,7 @@ const TimeboxLanding = () => {
                 ))}
               </ul>
               
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg">
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200">
                 Upgrade to Premium
               </button>
             </div>
@@ -537,7 +536,7 @@ const TimeboxLanding = () => {
               <a href="#" className={`hover:${isDarkMode ? 'text-blue-400' : 'text-blue-600'} transition-colors`}>{t.terms}</a>
               <a href="#" className={`hover:${isDarkMode ? 'text-blue-400' : 'text-blue-600'} transition-colors`}>{t.support}</a>
               <a href="#" className={`hover:${isDarkMode ? 'text-blue-400' : 'text-blue-600'} transition-colors`}>{t.contact}</a>
-              <a href="https://www.thetimebox.xyz/app/login" className={`hover:${isDarkMode ? 'text-blue-400' : 'text-blue-600'} transition-colors`}>{t.login}</a>
+              <a href="https://app.thetimebox.xyz/login" className={`hover:${isDarkMode ? 'text-blue-400' : 'text-blue-600'} transition-colors`}>{t.login}</a>
             </div>
           </div>
           
