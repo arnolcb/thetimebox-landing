@@ -313,7 +313,7 @@ const TimeboxLanding = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 opacity-0 animate-fade-in" style={{animationDelay: '0.8s'}}>
             <a 
-              href="https://www.thetimebox.xyz/app/login" 
+              href="https://app.thetimebox.xyz/login" 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg"
